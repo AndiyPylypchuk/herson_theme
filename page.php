@@ -13,33 +13,20 @@
           </div>
           <div class="container">
             <div class="row">
-              <div class="col-lg-offset-1 col-lg-8 col-md-9">
-                <div class="items-wrap flex-row">
-                <?php if(have_posts()) : ?>
-                <?php while(have_posts()) : the_post(); ?>
-                  <article class="item">
-                      <?php if(has_post_thumbnail()) : ?>
-                        <div class="item__img">
-                          <?php the_post_thumbnail(); ?>
-                         </div>
-                      <?php endif; ?> 
-                    <h3 class="h3 item__title">
-                        <a href="<?php the_permalink();?>">
-                          <?php the_title(); ?>
-                        </a>
-                    </h3>
-                    <p class="item__subtitle">
-                    <?php the_time('F j, Y g:i a'); ?> 
-                    <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>"><?php the_author(); ?></a>
-                    </p>
-                    <p class="item__text"><?php the_excerpt();?></p>
-                    <a class="btn btn_red btn_lg" href="#">подробнее</a>
-                  </article>
-                  <?php endwhile; ?>
-                  <?php else : ?>
-                  <p><?php __('No Post File'); ?></p>
-                 <?php endif;?>
-                </div>
+              <div class="col-md-9 col-sm-12">
+                
+                    <?php if(have_posts()) : ?>
+                    <?php while(have_posts()) : the_post(); ?>
+                    
+                    <div class="main-article">
+                    <h2 class="h2 main-article__title"><?php the_title(); ?></h2>
+                    <div class="main-article__addition"><span class="color_red">??возможность указать источник</span>и необходимые теги ] теги</div>
+                    <?php the_content();?>
+                    </div>
+                    <?php endwhile; ?>
+                    <?php else : ?>
+                    <p><?php __('No Page File'); ?></p>
+                    <?php endif;?>
               </div>
               <div class="col-lg-3 col-md-3">
                 <div class="sidebar_blog">
