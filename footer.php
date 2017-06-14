@@ -1,3 +1,18 @@
+ <?php if(!is_front_page()) : ?>
+ <div class="col-lg-3 col-md-3">
+                <div class="sidebar_blog">
+                <?php if(is_active_sidebar('sidebar')): ?>
+                    <?php dynamic_sidebar('sidebar'); ?>
+                <?php endif;?>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+        <?php endif; ?>
+  </div>
 <footer class="wrapper footer" id="footer">
       <div class="container">
         <div class="flex-row_start">

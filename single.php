@@ -34,34 +34,4 @@
                     <?php endif;?>
               </div>
 
-              
-              <div class="col-lg-3 col-md-3">
-                <div class="sidebar_blog">
-                  <div class="category box">
-                    <h4 class="header">категории</h4>
-                    <div class="content">
-                      <ul>
-                        <li><a href="#">Технологии</a></li>
-                        <li><a href="#">Производство</a></li>
-                        <li><a href="#">Новинки</a></li>
-                        <li><a href="#">События</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div class="arhive box">
-                    <h4 class="header">Архив</h4>
-                    <div class="content">
-                      <ul>
-                        <li><a href="#">Март 2017</a></li>
-                        <li><a href="#">Февраль 2017</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-  </div>
   <?php get_footer();?>
