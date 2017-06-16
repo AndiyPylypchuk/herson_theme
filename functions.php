@@ -2,10 +2,15 @@
 //register nav walker
 require_once('wp-bootstrap-navwalker.php');
 
-//theme support
-
+/*
+    ================================
+    Theme support
+    ================================
+*/
 function wpb_theme_setup(){
+    //add posibility to upload photo for a post in admin panel
     add_theme_support('post-thumbnails');
+
     //nav menus
     register_nav_menus(array(
         'primary' => __('Primary Menu')
@@ -13,19 +18,34 @@ function wpb_theme_setup(){
 
     //post formats
     //add_theme_support('post-formats',array('aside', 'galary'));
+
+    //Custom Background
+    //add_theme_support('custom-background');
+
+    //Custom Header
+    //add_theme_support('custom-header');
 }
 
 add_action('after_setup_theme', 'wpb_theme_setup');
 
-//excerpt lenght
+/*
+    ================================
+    Excerpt lenght
+    ================================
+*/
 
+//variate the lenght of a post content in a preview
 function set_excerpt_lenght(){
     return 45;
 }
 
 add_filter('excerpt_lenght', 'set_excerpt_lenght');
 
-//Widgets
+/*
+    ================================
+    Widgets support
+    ================================
+*/
 
 function wpb_init_widgets($id){
     register_sidebar(array(

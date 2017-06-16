@@ -20,7 +20,7 @@
                     
                     <div class="main-article">
                     <h2 class="h2 main-article__title"><?php the_title(); ?></h2>
-                    <div class="main-article__addition"><span class="color_red">??возможность указать источник</span>и необходимые теги ] теги</div>
+                    <div class="main-article__addition"><span class="color_red"><?php the_secondary_title(); ?></span>и необходимые теги ] теги</div>
                     <?php the_content();?>
                     </div>
                     <?php endwhile; ?>

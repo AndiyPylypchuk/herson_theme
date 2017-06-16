@@ -15,9 +15,9 @@
             <div class="row">
               <div class="col-lg-offset-1 col-lg-8 col-md-9">
                 <div class="items-wrap flex-row">
-                <?php if(have_posts()) : ?>
-                <?php while(have_posts()) : the_post(); ?>
-                  <?php get_template_part('content'); ?>
+                  <?php if(have_posts()) : ?>
+                  <?php while(have_posts()) : the_post(); ?>
+                    <?php get_template_part('content'); ?>
                   <?php endwhile; ?>
                   <?php else : ?>
                   <p><?php __('No Post File'); ?></p>
