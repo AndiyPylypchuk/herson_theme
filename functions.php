@@ -49,7 +49,7 @@ add_filter('excerpt_lenght', 'set_excerpt_lenght');
 
 function wpb_init_widgets($id){
     register_sidebar(array(
-        'name' => 'Sidebar',
+        'name' => 'MySidebar',
         'id'   => 'sidebar',
         'before_widget' => '<div class="box">',
         'after_widget'  => '</div>',

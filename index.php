@@ -7,7 +7,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-offset-1 col-md-11">
-                <h1 class="h1 services_word__title"><?php the_title()?></h1>
+                <h1 class="h1 services_word__title">БЛОГ</h1>
               </div>
             </div>
           </div>
