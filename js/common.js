@@ -49,8 +49,18 @@ $(function() {
   $('input[placeholder], textarea[placeholder]').placeholder();
 
 });
-
+function slowScroll(id){
+    var offset= 0;
+    $('html, body').animate ({
+        scrollTop: $(id).offset().top - offset
+    }, 500);
+    return false;
+}
 $(document).ready(function(){
+
+var sElement = document.getElementById('s');
+if(sElement)
+  sElement.setAttribute("placeholder", "Search...");
 
  $('.js-slider-top').slick({
     slidesToShow: 1,
@@ -152,6 +162,34 @@ $(document).ready(function(){
         }
       }
     });
+    $('#orderFormContact').validate({
+      rules: {
+        name: {
+          required : true,
+          minlength : 2
+        },
+        email: {
+          required: true,
+          email: true
+        },
+        theme: {
+          required : true
+        }
+      },
+      messages: {
+        name: {
+          required: "Введите имя",
+          minlength: "Ваше имя должно иметь больше 2 символов"
+        },
+        email: {
+          required: "Нам нужен email, что бы связаться с вами",
+          email: "Ваш email должен быть в таком формате name@domain.com"
+        },
+        theme: {
+          required: "Укажите тему сообщения"
+        }
+      }
+    });
 });
 
 var toggleMenuMob = (function(){
@@ -180,48 +218,20 @@ function initMap() {
   });
 };
 
-//navigation submenu
-
-var dropdown = (function() {
-  var $dropdownlink = $('.js-show-dropdown');
-  var $dropdown = $('.js-submenu');
-
-  $dropdownlink.on('mouseover', function() {
-      $dropdown.fadeIn(300);
-      // $dropdown.css({
-      //     'top': $('.header').outerHeight(),
-      // });
+  $('ul.nav > li.dropdown').on('click', function(e) {
+      e.preventDefault();
+      $(this).children('.dropdown-menu').slideToggle();
+      $(this).toggleClass('active');
   });
-
-  $dropdownlink.on('mouseout', function() {
-      setTimeout(function() {
-          if ($('.js-submenu:hover').length != 0) {
-              // do something ;)
-          } else {
-              hidemenu();
-          }
-      }, 500)
+  $('ul.nav > li.dropdown > ul > li.dropdown').on('click', function(e) {
+    if ($(window).width() < 768) {
+      e.preventDefault();
+      e.stopPropagation();
+      $(this).children('.dropdown-menu').slideToggle();
+      $(this).toggleClass('active');
+    }
   });
-
-  $dropdown.on('mouseout', function() {
-
-      if ($('.js-submenu:hover').length != 0) {
-          // do something ;)
-      } else {
-          hidemenu();
-      }
-  });
-
-  function hidemenu() {
-      $dropdown.fadeOut(300);
-  }
-
-})();
-
-$('.js-show-mobile-sub-menu').on('click', function(e) {
-    e.preventDefault();
-    $(this).next('.mobile-menu__down-menu').slideToggle();
-    $(this).toggleClass('active');
-
-});
-
+  
+$(window).on('resize', function(){
+   $('.dropdown-menu').css({'display':''} );
+})

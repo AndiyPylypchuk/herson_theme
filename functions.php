@@ -13,7 +13,11 @@ function wpb_theme_setup(){
 
     //nav menus
     register_nav_menus(array(
-        'primary' => __('Primary Menu')
+        'menu_ra' => __('Menu RA'),
+        'menu_tm' => __('Menu TM'),
+        'footer_ra' => __('Footer RA'),
+        'footer_tm' => __('Footer TM'),
+        'menu_blog' => __('Menu Blog')
     ));
 
     //post formats
